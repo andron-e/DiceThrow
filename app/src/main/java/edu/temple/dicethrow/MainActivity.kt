@@ -17,12 +17,16 @@ class MainActivity : AppCompatActivity() {
                 .beginTransaction()
                 .add(R.id.fragmentContainerView, DieFragment.newInstance(sides = 20))
                 .commit()
-
         findViewById<Button>(R.id.rollDiceButton).setOnClickListener {
+            rollDice()
+        }
+
+        override fun rollDice (){
             (supportFragmentManager
                 .findFragmentById(R.id.fragmentContainerView) as DieFragment).throwDie()
+            (supportFragmentManager
+                .findFragmentById(R.id.fragmentContainerView2) as DieFragment).throwDie()
         }
-    }
 }
 
 
